@@ -1,10 +1,10 @@
-import { Response } from "express";
-import { Controller, Get, HttpStatus, Inject, Param, Res } from "@nestjs/common";
-import { CourseService } from "./course.service";
+import { Response } from 'express';
+import { Controller, Get, HttpStatus, Param, Res } from '@nestjs/common';
+import { CourseService } from './course.service';
 
 @Controller()
 export class CourseController {
-  constructor(@Inject() private courseService: CourseService) {
+  constructor(private courseService: CourseService) {
   }
 
   @Get("/courses")
