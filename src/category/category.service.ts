@@ -15,13 +15,14 @@ export class CategoryService {
 
     return this.categoryRepository.find().then(categories => {
       for (let i = 0; i < categories.length; i++) {
-        map[categories[i].id] = i;
+        const category = categories[i];
+        map[category.id] = category;
       }
 
       for (let i = 0; i < categories.length; i++) {
         const node = categories[i];
         if (node.parentId !== null) {
-          const root = categories[map[node.parentId]];
+          const root = map[node.parentId];
           if (!root.subcategories) {
             root.subcategories = [];
           }
